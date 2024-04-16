@@ -1,6 +1,5 @@
 # Resumen de lo pedido
-- Notebooks > FastAPI > Deploy > Markdown > Video
-- Repositorio (con readme.md)
+- Notebooks > FastAPI > Deploy > Video > Repositorio (con readme.md)
 
 # Comandos
 - conda create --name PI1 python==3.11 fastapi fastparquet nltk numpy pandas pyarrow scikit-learn uvicorn gdown langdetect
@@ -10,16 +9,12 @@
 - uvicorn main:app --reload
 - uvicorn main:app --host 0.0.0.0 --port 10000
 - http://127.0.0.1:8000/docs
+- https://pi1-ml-ops-5vx7.onrender.com/docs
 
-# Falta
-- Video API https://www.youtube.com/watch?v=12NIB_RjxMo
-- Video FastAPI https://youtu.be/12NIB_RjxMo?si=FNSPdqWNayEZxd0j
-- Estructura: EDA > ETL > API
-- EDA con el notebook de StarFront
 
 # Tests
 **developer(desarrollador : str)**
-Id Software		1990                  1                       0.0
+Id Software		1993                  1                       0.0
 Capcom			2008                  2                       0.00
 
 **userdata(User_id : str)**
