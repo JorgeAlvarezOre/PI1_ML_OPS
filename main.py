@@ -2,7 +2,7 @@ from fastapi.responses import JSONResponse
 from fastapi import FastAPI
 import pandas as pd
 import numpy as np  
-from sklearn.utils.extmath           import randomized_svd
+#from sklearn.utils.extmath           import randomized_svd
 from sklearn.metrics.pairwise        import cosine_similarity
 from sklearn.metrics.pairwise        import linear_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -14,9 +14,9 @@ df_steam_games = pd.read_parquet("df_steam_games_cleaned.parquet")
 df_user_items = pd.read_parquet("df_user_items_cleaned.parquet") # columns=columnstouse
 df_user_reviews = pd.read_parquet("df_user_reviews_cleaned.parquet")
 
-df_SteamGames = df_steam_games.head(12000)
-df_UserItems = df_user_items.head(12000)
-df_UserReviews = df_user_reviews.head(12000)
+df_SteamGames = df_steam_games.head(14000)
+df_UserItems = df_user_items.head(14000)
+df_UserReviews = df_user_reviews.head(14000)
 
 
 app=FastAPI()
@@ -59,7 +59,8 @@ def developer(desarrollador:str):
     return result
 
 ####
-#Código necesario para el funcionamiento de la función userdata()
+# Código necesario para el funcionamiento de la función userdata()
+# Explicación en el notebook 06_Funciones.ipynb
 df_items_count = df_UserItems.groupby("user_id")['items_count'].mean().reset_index()
 resultado = df_UserReviews[['user_id','recommend']]
 df_user_recommend_ratio = resultado.groupby('user_id')['recommend'].mean().round(2).reset_index()
@@ -149,7 +150,33 @@ def developer_reviews_analysis(desarrolladora:str):
     ]}
     return result
 
+####
+# Código necesario para el funcionamiento de la función recomendacion_juego()
+# Explicación en el notebook 05_Modelo_item.ipynb
+game_columns = ['item_id', 'name']
+df_games = df_SteamGames[game_columns]
+df_joined = pd.merge(df_games, df_UserReviews[['item_id', 'review']], on='item_id', how='inner')
+muestra = df_joined.head(14000)
+tfidf = TfidfVectorizer(stop_words='english')
+muestra=muestra.fillna("")
+tdfid_matrix = tfidf.fit_transform(muestra['review'])
+cosine_similarity = linear_kernel( tdfid_matrix, tdfid_matrix)
+
+@app.get('/Recomendación_juegos/{id}')
+def recomendacion_juego(id: int):
+    if id not in muestra['item_id'].values:
+        return {'mensaje': 'No existe el id del juego'}
+    
+    titulo = muestra.loc[muestra['item_id'] == id, 'name'].iloc[0]
+    idx = muestra[muestra['name'] == titulo].index[0]
+    sim_cosine = list(enumerate(cosine_similarity[idx]))
+    sim_scores = sorted(sim_cosine, key=lambda x: x[1], reverse=True)
+    sim_ind = [i for i, _ in sim_scores[1:6]]
+    sim_juegos = muestra['name'].iloc[sim_ind].values.tolist()
+    return {f'juegos recomendados para {id}': list(sim_juegos)}
+
 # Test
+# print("-----------------------------")
 # print(developer("Id Software"))
 # print("-----------------------------")
 # print(userdata("--ionex--"))
@@ -159,3 +186,5 @@ def developer_reviews_analysis(desarrolladora:str):
 # print(best_developer_year(2015))
 # print("-----------------------------")
 # print(developer_reviews_analysis("Valve"))
+# print("-----------------------------")
+# print(recomendacion_juego(2300))

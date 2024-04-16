@@ -23,8 +23,9 @@ Id Software		1990                  1                       0.0
 Capcom			2008                  2                       0.00
 
 **userdata(User_id : str)**
---ionex-- {'Usuario': '--ionex--', 'Dinero gastado': 109.92, '% de recomendación': 100.0, 'Cantidad de items': 23.0}
-zzoptimuszz {'Usuario': 'zzoptimuszz', 'Dinero gastado': 4.99, '% de recomendación': 100.0, 'Cantidad de items': 61.0}
+76561197970982479 {"Usuario": "76561197970982479",  "Dinero gastado": 1173.3,  "% de recomendación": 100,  "Cantidad de items": 277}
+
+doctr {  "Usuario": "doctr",  "Dinero gastado": 2174.47,  "% de recomendación": 100,  "Cantidad de items": 541}
 
 **UserForGenre(genero : str)**
 Casual {'Usuario con más horas jugadas para Género Casual': 'REBAS_AS_F-T', 'Horas jugadas': [{'Año': 2001, 'Horas': 0.18}, {'Año': 2007, 'Horas': 7.1}, {'Año': 2008, 'Horas': 22.5}, {'Año': 2009, 'Horas': 124.79}, {'Año': 2010, 'Horas': 845.0699999999999}, {'Año': 2011, 'Horas': 691.41}, {'Año': 2012, 'Horas': 1278.84}, {'Año': 2013, 'Horas': 655.63}, {'Año': 2014, 'Horas': 1527.92}, {'Año': 2015, 'Horas': 4094.92}, {'Año': 2016, 'Horas': 5627.18}, {'Año': 2017, 'Horas': 38.67}]}
@@ -38,3 +39,8 @@ Free to Play {'Usuario con más horas jugadas para Género Free to Play': 'REBAS
 **developer_reviews_analysis(desarrolladora : str)**
 Valve {'Valve': ['Negative = 908', 'Positive = 4713']}
 Ubisoft {'Ubisoft': ['Negative = 32', 'Positive = 61']}
+
+**recomendacion_juego(id : int)**
+2300 {'juegos recomendados para 2300': ['Max Payne 3', 'RollerCoaster Tycoon® 3: Platinum', 'Insurgency', 'ARK: Survival Evolved', 'Shower With Your Dad Simulator 2015: Do You Still Shower With Your Dad']}
+
+21000 {'juegos recomendados para 21000': ['Toribash', 'Doom 3: BFG Edition', 'AdVenture Capitalist', 'Portal 2', 'Portal 2']}
