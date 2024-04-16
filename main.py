@@ -15,7 +15,7 @@ df_user_items = pd.read_parquet("df_user_items_cleaned.parquet") # columns=colum
 df_user_reviews = pd.read_parquet("df_user_reviews_cleaned.parquet")
 
 df_SteamGames = df_steam_games
-df_UserItems = df_user_items
+df_UserItems = df_user_items.head(50000)
 df_UserReviews = df_user_reviews
 
 
