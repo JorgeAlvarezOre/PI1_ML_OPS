@@ -14,9 +14,9 @@ df_steam_games = pd.read_parquet("df_steam_games_cleaned.parquet")
 df_user_items = pd.read_parquet("df_user_items_cleaned.parquet") # columns=columnstouse
 df_user_reviews = pd.read_parquet("df_user_reviews_cleaned.parquet")
 
-df_SteamGames = df_steam_games.head(5000)
-df_UserItems = df_user_items.head(5000)
-df_UserReviews = df_user_reviews.head(5000)
+df_SteamGames = df_steam_games.head(12000)
+df_UserItems = df_user_items.head(12000)
+df_UserReviews = df_user_reviews.head(12000)
 
 
 app=FastAPI()
@@ -148,3 +148,14 @@ def developer_reviews_analysis(desarrolladora:str):
         f'Positive = {sentiment_counts.get(2, 0)}' 
     ]}
     return result
+
+# Test
+# print(developer("Id Software"))
+# print("-----------------------------")
+# print(userdata("--ionex--"))
+# print("-----------------------------")
+# print(UserForGenre("Casual"))
+# print("-----------------------------")
+# print(best_developer_year(2015))
+# print("-----------------------------")
+# print(developer_reviews_analysis("Valve"))
