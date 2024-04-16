@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+Orig/
+Salida/
+steam_games_cleaned.csv
+user_items_cleaned.csv
+user_reviews_cleaned.csv
+git
