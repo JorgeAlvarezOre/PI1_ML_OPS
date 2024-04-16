@@ -14,9 +14,9 @@ df_steam_games = pd.read_parquet("df_steam_games_cleaned.parquet")
 df_user_items = pd.read_parquet("df_user_items_cleaned.parquet") # columns=columnstouse
 df_user_reviews = pd.read_parquet("df_user_reviews_cleaned.parquet")
 
-df_SteamGames = df_steam_games.head(12000)
-df_UserItems = df_user_items.head(12000)
-df_UserReviews = df_user_reviews.head(12000)
+df_SteamGames = df_steam_games.head(10000)
+df_UserItems = df_user_items.head(10000)
+df_UserReviews = df_user_reviews.head(10000)
 
 
 app=FastAPI()
