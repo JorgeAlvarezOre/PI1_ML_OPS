@@ -75,7 +75,7 @@ for i in range(len(lista)):
     temp = df_user_data
 df_user_data.loc[:, 'recommend'] = df_user_data['recommend'] * 100
 df_user_data.rename(columns={'recommend': 'recommend_ratio'})
-###
+####
 
 @app.get('/datos_por_usuario/{user_id}')
 def userdata(user_id:str):
@@ -161,6 +161,7 @@ tfidf = TfidfVectorizer(stop_words='english')
 muestra=muestra.fillna("")
 tdfid_matrix = tfidf.fit_transform(muestra['review'])
 cosine_similarity = linear_kernel( tdfid_matrix, tdfid_matrix)
+####
 
 @app.get('/Recomendación_juegos/{id}')
 def recomendacion_juego(id: int):
@@ -174,6 +175,7 @@ def recomendacion_juego(id: int):
     sim_ind = [i for i, _ in sim_scores[1:6]]
     sim_juegos = muestra['name'].iloc[sim_ind].values.tolist()
     return {f'juegos recomendados para {id}': list(sim_juegos)}
+
 
 # Test
 # print("-----------------------------")
