@@ -29,15 +29,15 @@ Realizamos un Análisis Exploratorio de Datos (EDA) para examinar interacciones 
 
 Se pueden revisar el código detallado en el notebook 04_EDA.ipynb .
 
+### Modelo de Machine Learning
+
+Desarrollamos un sistema de Aprendizaje Automático para ofrecer sugerencias de videojuegos. Empleamos métodos y algoritmos para examinar las tendencias en la información de usuarios y juegos, con el fin de entregar recomendaciones a medida. El sistema fue capacitado utilizando un conjunto de datos de 14000 registros.
+
 ### Deployment de la API
 
 Construimos una API utilizando FastAPI para hacer accesibles los datos, estableciendo consultas tales como developer, userdata, UserForGenre, best_developer_year, developer_reviews_analysis y recomendacion_juego. Implementamos soluciones como FastAPI, Uvicorn y Render.
 
 Se pueden revisar el código de prueba y mejor documentado en los notebooks 05_Modelo_item.ipynb , 06_Funciones.ipynb , 07_CSV_to_PARQUET.ipynb y el deploy exacto en el archivo Python main.py .
-
-## Modelo de Machine Learning
-
-Desarrollamos un sistema de Aprendizaje Automático para ofrecer sugerencias de videojuegos. Empleamos métodos y algoritmos para examinar las tendencias en la información de usuarios y juegos, con el fin de entregar recomendaciones a medida. El sistema fue capacitado utilizando un conjunto de datos de 14000 registros.
 
 Este proyecto demuestra un método completo que abarca desde el procesamiento inicial de los datos hasta la puesta en marcha de un sofisticado sistema de recomendaciones.
 
@@ -46,4 +46,3 @@ Este proyecto demuestra un método completo que abarca desde el procesamiento in
 Render: <https://pi1-ml-ops-5vx7.onrender.com/docs>
 
 Video: 
-
