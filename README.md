@@ -45,4 +45,4 @@ Este proyecto demuestra un método completo que abarca desde el procesamiento in
 
 Render: <https://pi1-ml-ops-5vx7.onrender.com/docs>
 
-Video: 
+Video: <https://youtu.be/Ker9a9sN3KM>
